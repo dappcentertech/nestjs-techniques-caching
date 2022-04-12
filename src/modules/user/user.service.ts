@@ -4,47 +4,46 @@ import bcrypt from 'bcryptjs';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { IDatabaseErrorResponse } from '../../shared/interfaces/httpResponses.interface';
 import jwt from 'jsonwebtoken';
 import { UserSessionsDto } from './dto/user-sessions.dto';
 import authConfig from '../../infra/config/auth';
 import { AuthResponse, TUserList } from './user.type';
-import { Response } from 'express';
 import { UserSQL } from './user.sql';
 import { UserListDataDto } from './dto/user-list-data';
 
 @Injectable()
 export class UserService {
     constructor(
-        @InjectRepository(User) private readonly user_repo: Repository<User>,
+        @InjectRepository(User)
+        private readonly userRepository: Repository<User>,
     ) {}
     public async findUserList(dto: UserListDataDto): Promise<TUserList[]> {
-        return await this.user_repo.query(
+        return this.userRepository.query(
             UserSQL.findUserList({
                 ...dto,
             }),
         );
     }
     public async findAll(): Promise<User[]> {
-        return await this.user_repo.find();
+        return this.userRepository.find();
     }
     public async findOne(id: string): Promise<User> {
-        return await this.user_repo.findOne(id);
+        return this.userRepository.findOne(id);
     }
     public async create(createUserDto: CreateUserDto) {
         try {
             const passwordHash = await bcrypt.hash(createUserDto.password, 8);
-            const user = this.user_repo.create({
+            const user = this.userRepository.create({
                 ...createUserDto,
                 password: passwordHash,
             });
-            return this.user_repo.save(user);
+            return this.userRepository.save(user);
         } catch (error) {
             throw error;
         }
     }
     async auth(userSessionsDto: UserSessionsDto): Promise<AuthResponse> {
-        const user = await this.user_repo.findOne({
+        const user = await this.userRepository.findOne({
             where: {
                 email: userSessionsDto.email,
             },

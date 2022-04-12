@@ -24,7 +24,6 @@ import { UserModule } from './modules/user/user.module';
             rootPath: join(__dirname, '..', 'public'),
         }),
         TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
-        CacheModule.register(),
         LoggerModule.forRoot({
             httpLoggerExclude: ['/', '/status'],
         }),
@@ -32,6 +31,7 @@ import { UserModule } from './modules/user/user.module';
             ttl: 60 * 60,
             limit: 60,
         }),
+        CacheModule.register(),
         UserModule,
     ],
     controllers: [AppController],
