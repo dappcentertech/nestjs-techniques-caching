@@ -1,6 +1,6 @@
 # Basic documentation
 
-[![Node.js CI](https://github.com/hebertcisco/nestjs-rest-boilerplate/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/hebertcisco/nestjs-rest-boilerplate/actions/workflows/node.js.yml)
+[![Node.js CI](https://github.com/hebertcisco/nestjs-techniques-caching/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/hebertcisco/nestjs-techniques-caching/actions/workflows/node.js.yml)
 
 ## Introduction
 The main file is [src/server.ts](src/server.ts). The server is divided into domain, infra, and shared resources.

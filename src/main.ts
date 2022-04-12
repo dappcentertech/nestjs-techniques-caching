@@ -20,10 +20,10 @@ async function bootstrap() {
     app.enableCors();
     if (!configService.isProduction()) {
         const config = new DocumentBuilder()
-            .setTitle('nestjs-rest-boilerplate')
+            .setTitle('nestjs-techniques-caching')
             .setDescription('')
             .setVersion('0.0.1')
-            .addTag('nestjs-rest-boilerplate')
+            .addTag('nestjs-techniques-caching')
             .build();
         const document = SwaggerModule.createDocument(app, config);
         SwaggerModule.setup('docs', app, document);
