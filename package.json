@@ -73,7 +73,7 @@
         "qs": "6.10.3",
         "reflect-metadata": "0.1.13",
         "rimraf": "3.0.2",
-        "rxjs": "7.5.5",
+        "rxjs": "7.6.0",
         "swagger-ui-express": "4.3.0",
         "tsyringe": "4.6.0",
         "typeorm": "0.2.41",
