@@ -24,22 +24,6 @@ It also has the useful resource parts, scrips, constants and routes.
 docker run --name db_pg -p 5432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -d postgres:11
 ```
 
-## Environment variables
-
-> Create a `.env` file in the root directory of your project
-
-```dotenv
-POSTGRES_DATABASE="postgres"
-POSTGRES_HOST="127.0.0.1"
-POSTGRES_USER="postgres"
-POSTGRES_PASSWORD="postgres"
-POSTGRES_PORT=5432
-
-PORT=3333
-APP_SECRET='senhona_grossa'
-MODE="DEV"
-```
-
 ## Runing the application with docker
 
 ### Run as dev 
